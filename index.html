@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asad Imran | Electronics, Embedded and FPGA Engineer</title>
+<meta name="description" content="Asad Imran, electronics, embedded and FPGA engineer. Carrier board PCB design, RF fingerprinting on Xilinx RFSoC and STM32 data acquisition firmware.">
+<meta name="theme-color" content="#05070a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Asad Imran | Electronics, Embedded and FPGA Engineer">
+<meta property="og:description" content="Asad Imran, electronics, embedded and FPGA engineer. Carrier board PCB design, RF fingerprinting on Xilinx RFSoC and STM32 data acquisition firmware.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/signal-field.js" defer></script>
+<script src="js/cursor.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-fill"></div></div>
+<canvas id="signal-field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-nav">
+<nav class="nav-inner" aria-label="Primary">
+<a class="mark" href="#hero" aria-label="Asad Imran, back to top"><img src="assets/favicon.svg" alt="" width="26" height="26"></a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+<ul class="nav-links" id="nav-links">
+<li><a href="#work" data-nav="work">Work</a></li>
+<li><a href="#experience" data-nav="experience">Experience</a></li>
+<li><a href="#education" data-nav="education">Education</a></li>
+<li><a href="#toolkit" data-nav="toolkit">Toolkit</a></li>
+<li><a href="#contact" data-nav="contact">Contact</a></li>
+<li><a class="btn-outline" href="assets/resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+</ul>
+</nav>
+</header>
+
+<main id="main">
+
+<section class="hero" id="hero" aria-labelledby="hero-title" data-track>
+<div class="container">
+<p class="eyebrow">ELECTRONICS / EMBEDDED / FPGA</p>
+<h1 id="hero-title">ASAD IMRAN</h1>
+<p class="intro">Electronics engineer working across embedded hardware, high-speed PCB design, firmware, FPGA development and signal processing. I have taken systems from architecture and schematic capture through layout, bring-up, debugging and manufacturing support.</p>
+<p class="hero-links">
+<a class="link-solid" href="#work">View work</a>
+<a class="link-text" href="assets/resume.pdf" target="_blank" rel="noopener">Résumé</a>
+</p>
+</div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+<div class="container">
+<div class="section-head" data-track data-nav="work">
+<h2 id="work-title">Work</h2>
+</div>
+
+<article class="project reveal" id="cm4-cm5" data-project="cm" data-track data-nav="work" aria-labelledby="cm-title" data-skills="rpi-cm pcb-design schematic multilayer pcie nvme gbe usbc-pd poe uart i2c i2s signal-integrity erc-drc bringup scope logic kicad bom">
+<header class="proj-head">
+<span class="idx">01</span>
+<h3 id="cm-title">CM4 / CM5 Carrier Board</h3>
+<span class="ctx">Professional</span>
+</header>
+<p class="summary">Compact 120 × 40 mm carrier for Raspberry Pi CM4 and CM5 with NVMe storage, Gigabit Ethernet, PoE, USB-C PD and peripheral expansion on a six-layer PCB.</p>
+<div class="proj-main">
+<figure class="visual visual--photo">
+<img src="assets/projects/cm4-cm5/hardware.jpg" width="1372" height="896" loading="lazy" alt="Photograph of the assembled CM5 carrier board with a black finned heatsink and fan on the compute module, an Ethernet jack and USB-C connector at the left end, and small connectors and jumper pins along the front edge.">
+<figcaption>Rev 1 production board with CM5, heatsink and fan</figcaption>
+</figure>
+<table class="spec">
+<caption>Specification</caption>
+<tbody>
+<tr><th scope="row">Form factor</th><td>120 × 40 mm</td></tr>
+<tr><th scope="row">PCB</th><td>6-layer, after a 2-layer prototype</td></tr>
+<tr><th scope="row">Modules</th><td>Raspberry Pi CM4 and CM5</td></tr>
+<tr><th scope="row">Power</th><td>PoE via SDAPO DP5405 Powered Device module (25 W, 5 V at about 5 A), USB-C PD (15 V / 3 A profile), local 5 V and 3.3 V rails</td></tr>
+<tr><th scope="row">Interfaces</th><td>M.2 2260 M-Key NVMe (PCIe), Gigabit Ethernet, USB, microSD, UART, I²C (Qwiic), 4-pin PWM fan</td></tr>
+<tr><th scope="row">Revisions</th><td>Rev 1 (production, <a href="https://github.com/AsadImranRafique/CM5-Carrier-Board" target="_blank" rel="noopener">GitHub repository</a>) and Rev 2 (<a href="https://github.com/AsadImranRafique/CM5-Carrier-Board-Rev2" target="_blank" rel="noopener">GitHub repository</a>). Rev 2 adds the NVMe fix, CSI and HDMI (Hirose connectors) and an I²S daughtercard.</td></tr>
+</tbody>
+</table>
+</div>
+<dl class="fields">
+<div class="field"><dt>Role</dt><dd>Sole designer, from requirements through schematic capture, six-layer PCB layout and prototype bring-up. Chose the components and placement within the size and cost requirements. Handled BOM, sourcing, supplier communication and PCBA ordering.</dd></div>
+<div class="field"><dt>Challenge and decision</dt><dd>NVMe worked on the CM5 and failed to link on the CM4. The working CM5 cleared the PCIe routing, which pointed to control signals that differ between modules. In Rev 2 the M.2 enable state is derived from the carrier power state and the wake signal is pulled up.</dd></div>
+<div class="field"><dt>Result</dt><dd>NVMe operates on both CM4 and CM5 in Rev 2.</dd></div>
+</dl>
+<ul class="tags" aria-label="Technologies">
+<li>PoE</li>
+<li>PCB Design</li>
+<li>Schematic Capture</li>
+<li>Signal Integrity</li>
+<li>Hardware Bring-up</li>
+<li>KiCad</li>
+<li>BOM and Sourcing</li>
+</ul>
+</article>
+
+<article class="project reveal" id="jetson" data-project="jetson" data-track data-nav="work" aria-labelledby="jetson-title" data-skills="jetson-mod pcb-design schematic multilayer pcie nvme oculink gbe usbc-pd signal-integrity i2c i2s spi uart erc-drc kicad">
+<header class="proj-head">
+<span class="idx">02</span>
+<h3 id="jetson-title">Jetson Orin Nano Carrier Board</h3>
+<span class="ctx">Professional</span>
+</header>
+<p class="summary">Eight-layer carrier for NVIDIA Jetson Orin Nano / NX with USB-C PD power, M.2 NVMe, OCuLink PCIe expansion, Gigabit Ethernet and embedded peripheral interfaces.</p>
+<div class="proj-main">
+<figure class="visual visual--render">
+<img src="assets/projects/jetson/board-render.png" width="1232" height="700" loading="lazy" alt="3D render of the Jetson carrier board showing the long 260-pin SO-DIMM module socket along the top, an M.2 connector in the centre, an Ethernet jack and USB-C connector at the left, a blue power inductor and small peripheral connectors along the lower edge.">
+<figcaption>3D render of the carrier board</figcaption>
+</figure>
+<table class="spec">
+<caption>Specification</caption>
+<tbody>
+<tr><th scope="row">Module</th><td>Jetson Orin Nano / NX, 260-pin SO-DIMM</td></tr>
+<tr><th scope="row">PCB</th><td>8-layer, Rev A released for PCBA</td></tr>
+<tr><th scope="row">Power</th><td>USB-C PD input, 5 V rail designed for about 8 A</td></tr>
+<tr><th scope="row">Expansion</th><td>M.2 M-Key NVMe, OCuLink (PCIe), Gigabit Ethernet, USB</td></tr>
+<tr><th scope="row">Peripherals</th><td>I²C, I²S, SPI, UART, 4-pin PWM fan</td></tr>
+</tbody>
+</table>
+</div>
+<dl class="fields">
+<div class="field"><dt>Role</dt><dd>Sole designer, from architecture through schematic capture, power design, PCB layout and design verification. Chose the components and placement within the size and cost requirements. Prepared the Rev A release for PCBA manufacture.</dd></div>
+<div class="field"><dt>Challenge and decision</dt><dd>The 260-pin breakout, two PCIe links, Ethernet, USB and an 8 A switching supply share one dense region. Placement follows interface topology and the switching node stays clear of the PCIe channels. USB PD negotiation runs in a standalone sink controller, so it does not depend on software on the Jetson.</dd></div>
+<div class="field"><dt>Result</dt><dd>Rev A was released for 8-layer PCBA manufacture.</dd></div>
+</dl>
+<ul class="tags" aria-label="Technologies">
+<li>PCB Design</li>
+<li>Schematic Capture</li>
+<li>Signal Integrity</li>
+<li>ERC / DRC</li>
+<li>KiCad</li>
+</ul>
+</article>
+
+<article class="project reveal" id="rf-fingerprinting" data-project="rff" data-track data-nav="work" aria-labelledby="rff-title" data-skills="rfsoc hls4ml hls vitis-hls vivado axi-stream quantisation pruning cnn keras stft dsp rf c python">
+<header class="proj-head">
+<span class="idx">03</span>
+<h3 id="rff-title">RF Fingerprinting</h3>
+<span class="ctx">Academic</span>
+</header>
+<p class="summary">CNN-based RF fingerprinting classifier for a pre-recorded 12-device Zigbee dataset, quantised with HLS4ML and deployed on a Xilinx ZCU111 RFSoC.</p>
+<div class="proj-main">
+<figure class="visual visual--diagram visual--svg">
+<svg viewBox="0 0 572 216" role="img" aria-label="Block diagram of the ZCU111 deployment: the processing system and DDR memory pass input data to the programmable logic, where a CNN IP core connects to an AXI DMA over AXI Stream and output data leaves the fabric." preserveAspectRatio="xMidYMid meet">
+<rect class="d-pl" x="244" y="8" width="224" height="200" rx="4"/>
+<text class="d-t d-c" x="356" y="30">Programmable Logic (PL)</text>
+<rect class="d-box" x="20" y="22" width="100" height="46" rx="3"/>
+<text class="d-t d-b d-c" x="70" y="49">PS</text>
+<path class="d-arrow" d="M65 68V104H58L70 122L82 104H75V68Z"/>
+<text class="d-t d-s" x="92" y="100">AXI-MM</text>
+<rect class="d-box" x="20" y="124" width="110" height="52" rx="3"/>
+<text class="d-t d-b d-c" x="75" y="146">DDR</text>
+<text class="d-t d-b d-c" x="75" y="163">Memory</text>
+<path class="d-arrow" d="M132 145H226V137L242 150L226 163V155H132Z"/>
+<text class="d-t d-s d-c" x="187" y="182">Input Data</text>
+<rect class="d-box" x="302" y="46" width="108" height="52" rx="3"/>
+<text class="d-t d-b d-c" x="356" y="68">CNN IP</text>
+<text class="d-t d-b d-c" x="356" y="85">CORE</text>
+<path class="d-arrow" d="M351 100V122H345L356 136L367 122H361V100Z"/>
+<text class="d-t d-s" x="376" y="123">AXI Stream</text>
+<rect class="d-box" x="302" y="138" width="108" height="52" rx="3"/>
+<text class="d-t d-b d-c" x="356" y="168">AXI DMA</text>
+<path class="d-arrow" d="M470 159H530V151L548 164L530 177V169H470Z"/>
+<text class="d-t d-s d-c" x="521" y="196">Output Data</text>
+</svg>
+<figcaption>ZCU111 deployment architecture</figcaption>
+</figure>
+<table class="spec">
+<caption>Specification</caption>
+<tbody>
+<tr><th scope="row">Platform</th><td>Xilinx ZCU111 RFSoC, inference in programmable logic over AXI Stream and DMA</td></tr>
+<tr><th scope="row">Dataset</th><td>Pre-recorded Zigbee dataset, 12 devices, 128 × 99 STFT spectrograms</td></tr>
+<tr><th scope="row">Model</th><td>CNN, 28,806 parameters, 653,516 before compression</td></tr>
+<tr><th scope="row">Precision</th><td>ap_fixed&lt;24,10&gt; (Q10.14), reuse factor 128, 100 MHz clock</td></tr>
+<tr><th scope="row">Accuracy</th><td>About 99% for the Python and HLS4ML models, 97.55% for the deployed model on the RFSoC</td></tr>
+<tr><th scope="row">Latency and utilisation</th><td>3 to 4 ms per inference, 17.75% LUT, 9.85% DSP, 4.44% BRAM</td></tr>
+</tbody>
+</table>
+</div>
+<dl class="fields">
+<div class="field"><dt>Role</dt><dd>Master of Engineering thesis project at Macquarie University. Covered CNN training and compression, HLS4ML quantisation, Vitis HLS and Vivado integration, and benchmarking on the ZCU111.</dd></div>
+<div class="field"><dt>Challenge and decision</dt><dd>The 653,516-parameter CNN was too large for the fabric, so its filters and dense units were cut to reach 28,806 parameters. A 16-bit fixed-point format overflowed and dropped accuracy to 15.2%. The selected configuration is 24-bit Q10.14 with 70% of the compressed model's weights pruned to zero and reuse factor 128, which trades latency for DSP usage.</dd></div>
+<div class="field"><dt>Result</dt><dd>The deployed model reaches 97.55% with all inference in programmable logic. Throughput is about 250 to 300 samples per second, set by the reuse factor, and STFT preprocessing runs offline.</dd></div>
+</dl>
+<ul class="tags" aria-label="Technologies">
+<li>Vitis HLS</li>
+<li>Vivado</li>
+<li>HLS</li>
+<li>Keras</li>
+<li>Model Pruning</li>
+<li>RF Signal Processing</li>
+<li>DSP</li>
+<li>C</li>
+</ul>
+</article>
+
+<article class="project reveal" id="stm32-daq" data-project="stm" data-track data-nav="work" aria-labelledby="stm-title" data-skills="stm32 cortex-m freertos dma uart daq c cpp python matlab cubeide">
+<header class="proj-head">
+<span class="idx">04</span>
+<h3 id="stm-title">STM32 Data Acquisition</h3>
+<span class="ctx">Academic</span>
+</header>
+<p class="summary">FreeRTOS firmware on an STM32F429 using DMA and double buffering to receive four 460800-baud UART streams without data loss.</p>
+<div class="proj-main">
+<figure class="visual visual--quiet">
+<div class="panel"><img src="assets/projects/stm32-daq/system-diagram.png" width="1010" height="460" loading="lazy" alt="System block diagram: analog and digital data sources pass through analog-to-digital converters and UARTs into an STM32 microcontroller acquisition board, which connects to a PC with a user interface and writes to a storage device for later data analysis."></div>
+<figcaption>Team project system diagram. My part: the STM32 firmware and the multi-UART interface.</figcaption>
+</figure>
+<table class="spec">
+<caption>Specification</caption>
+<tbody>
+<tr><th scope="row">MCU</th><td>STM32F429 Discovery, ARM Cortex-M4</td></tr>
+<tr><th scope="row">Input</th><td>4 × UART, up to 460800 baud each, about 180 kB/s aggregate payload</td></tr>
+<tr><th scope="row">Data path</th><td>DMA reception into double buffers, ISRs signal FreeRTOS tasks</td></tr>
+<tr><th scope="row">Verified</th><td>Lossless on 4 channels at 460800 baud</td></tr>
+<tr><th scope="row">Limit found</th><td>At 921 kbps one channel lossless, 256-byte loss on the other three</td></tr>
+</tbody>
+</table>
+</div>
+<dl class="fields">
+<div class="field"><dt>Role</dt><dd>Two-person final year project team at NUST (SEECS), 2022. My part was the multi-UART data acquisition interface, with FreeRTOS firmware written in STM32CubeIDE.</dd></div>
+<div class="field"><dt>Challenge and decision</dt><dd>Handling four 460800-baud streams byte by byte means about 184,000 interrupts per second. UART reception uses DMA into double buffers, so the CPU processes one block while DMA fills the other. ISRs only signal FreeRTOS tasks, and logging stays outside the acquisition path.</dd></div>
+<div class="field"><dt>Result</dt><dd>Lossless reception on all four channels at 460800 baud, checked with counter data plotted in MATLAB. At 921 kbps one channel stayed lossless and the other three lost 256 bytes when a double-buffer handoff missed its deadline.</dd></div>
+</dl>
+<ul class="tags" aria-label="Technologies">
+<li>Real-Time Data Acquisition</li>
+<li>C</li>
+<li>C++</li>
+<li>Python</li>
+<li>MATLAB</li>
+<li>STM32CubeIDE</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="experience-title" data-track>
+<div class="container">
+<div class="section-head">
+<h2 id="experience-title">Experience</h2>
+</div>
+<ol class="rows">
+<li class="row reveal" data-hl="rapid">
+<p class="row-date">Feb 2025 to Aug 2026</p>
+<div class="row-body">
+<h3>Hardware Design Engineer</h3>
+<p class="row-org">RapidAnalysis, Macquarie Park, NSW</p>
+<ul>
+<li>Owned the <a href="#cm4-cm5">CM4 / CM5</a> and <a href="#jetson">Jetson Orin Nano</a> carrier board designs from requirements and reference designs through schematic capture, PCB layout, component selection and prototype release.</li>
+<li>Integrated PCIe, Gigabit Ethernet, PoE, USB, USB-C PD, SD, I²C, I²S, SPI and UART on multi-layer PCBs, covering high-speed routing, power delivery and signal integrity.</li>
+<li>Ran ERC/DRC, design reviews, board bring-up and hardware validation, and debugged power, high-speed and peripheral faults across revisions.</li>
+<li>Managed BOM optimisation, component sourcing, supplier liaison, PCBA ordering and manufacturing support, including DFM / DFA.</li>
+</ul>
+</div>
+</li>
+<li class="row reveal" data-hl="intern">
+<p class="row-date">Aug 2024 to Jan 2025</p>
+<div class="row-body">
+<h3>Engineering Intern</h3>
+<p class="row-org">RapidAnalysis, Sydney, Australia</p>
+<ul>
+<li>Integrated an SPI-based e-ink display into an existing embedded hardware platform.</li>
+<li>Designed Raspberry Pi CM4 carrier boards from reference designs and hardware documentation, including schematic capture and PCB layout.</li>
+<li>Supported component selection, prototyping, board bring-up and debugging.</li>
+</ul>
+</div>
+</li>
+<li class="row reveal" data-hl="care">
+<p class="row-date">Apr 2022 to Jun 2023</p>
+<div class="row-body">
+<h3>Design Engineer</h3>
+<p class="row-org">Centre for Advanced Research in Engineering (CARE) Pvt. Ltd., Islamabad, Pakistan</p>
+<ul>
+<li>Developed and maintained backend components of a Lawful Interception System in C#, Java and C++, across legacy and replacement systems.</li>
+<li>Supported day-to-day operation and reliability, including troubleshooting and maintaining legacy code.</li>
+<li>Implemented secure storage, encryption and disaster recovery mechanisms.</li>
+<li>Built software simulators and test tools that generate test workloads and measure performance and failure limits.</li>
+</ul>
+</div>
+</li>
+<li class="row reveal" data-hl="research">
+<p class="row-date">Jul 2021 to Sep 2021</p>
+<div class="row-body">
+<h3>Research Intern</h3>
+<p class="row-org">RISC Research Lab, SEECS, NUST, Islamabad, Pakistan</p>
+<ul>
+<li>Researched architectures and techniques for high-speed embedded data acquisition.</li>
+<li>Contributed to a prototype DAQ system for high-speed, lossless data capture and storage.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</section>
+
+<section class="section" id="education" aria-labelledby="education-title" data-track>
+<div class="container">
+<div class="section-head">
+<h2 id="education-title">Education</h2>
+</div>
+<ol class="rows">
+<li class="row reveal" data-hl="edu">
+<p class="row-date">2023 to 2025</p>
+<div class="row-body">
+<h3>Master of Engineering in Electronics Engineering</h3>
+<p class="row-org">Macquarie University, Sydney</p>
+<p class="row-note">Thesis: Implementation and Benchmarking of CNN-Based RF Fingerprinting on Xilinx RFSoC FPGAs (<a href="#rf-fingerprinting">03 RF Fingerprinting</a>)</p>
+</div>
+</li>
+<li class="row reveal" data-hl="edu">
+<p class="row-date">2018 to 2022</p>
+<div class="row-body">
+<h3>Bachelor of Electrical Engineering</h3>
+<p class="row-org"><abbr title="National University of Sciences and Technology, School of Electrical Engineering and Computer Science">NUST (SEECS)</abbr>, Islamabad</p>
+<p class="row-note">Final year project: High Speed Embedded Data Acquisition and Logging System (<a href="#stm32-daq">04 STM32 Data Acquisition</a>)</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+
+<section class="section" id="toolkit" aria-labelledby="toolkit-title" data-track>
+<div class="container">
+<div class="section-head">
+<h2 id="toolkit-title">Toolkit</h2>
+<p class="head-note">Dots mark the projects, roles and education behind each skill. Hover or focus a chip to highlight them.</p>
+</div>
+<ul class="tk-legend" aria-label="Dot key">
+<li data-project="cm"><span class="dot" aria-hidden="true"></span><a href="#cm4-cm5">01 CM4 / CM5</a></li>
+<li data-project="jetson"><span class="dot" aria-hidden="true"></span><a href="#jetson">02 Jetson Orin Nano</a></li>
+<li data-project="rff"><span class="dot" aria-hidden="true"></span><a href="#rf-fingerprinting">03 RF Fingerprinting</a></li>
+<li data-project="stm"><span class="dot" aria-hidden="true"></span><a href="#stm32-daq">04 STM32 DAQ</a></li>
+<li data-project="exp"><span class="dot" aria-hidden="true"></span><a href="#experience">Experience</a></li>
+<li data-project="edu"><span class="dot" aria-hidden="true"></span><a href="#education">Education</a></li>
+</ul>
+<div class="tk-grid">
+<div class="tk-group reveal">
+<h3>Hardware Design</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="pcb-design">PCB Design</li>
+<li class="chip" tabindex="0" data-skill="schematic">Schematic Capture</li>
+<li class="chip" tabindex="0" data-skill="multilayer">Multilayer PCB</li>
+<li class="chip" tabindex="0" data-skill="signal-integrity">Signal Integrity</li>
+<li class="chip" tabindex="0" data-skill="usbc-pd">USB-C PD</li>
+<li class="chip" tabindex="0" data-skill="poe">PoE</li>
+<li class="chip" tabindex="0" data-skill="bringup">Hardware Bring-up</li>
+<li class="chip" tabindex="0" data-skill="bom">BOM and Sourcing</li>
+<li class="chip" tabindex="0" data-skill="erc-drc">ERC / DRC</li>
+<li class="chip" tabindex="0" data-skill="dfm" data-extra="exp" data-rows="rapid">DFM / DFA</li>
+</ul>
+</div>
+<div class="tk-group reveal">
+<h3>Embedded Systems</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="stm32">STM32</li>
+<li class="chip" tabindex="0" data-skill="cortex-m">ARM Cortex-M</li>
+<li class="chip" tabindex="0" data-skill="freertos">FreeRTOS</li>
+<li class="chip" tabindex="0" data-skill="dma">DMA</li>
+<li class="chip" tabindex="0" data-skill="uart i2c spi">UART / I²C / SPI</li>
+<li class="chip" tabindex="0" data-skill="rpi-cm">Raspberry Pi CM4/CM5</li>
+<li class="chip" tabindex="0" data-skill="jetson-mod">NVIDIA Jetson</li>
+<li class="chip" tabindex="0" data-skill="daq">Real-Time Data Acquisition</li>
+<li class="chip" tabindex="0" data-skill="adc" data-extra="edu" data-rows="edu">ADC</li>
+<li class="chip" tabindex="0" data-skill="sensor" data-extra="edu" data-rows="edu">Sensor Interfacing</li>
+</ul>
+</div>
+<div class="tk-group reveal">
+<h3>FPGA / Digital</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="rfsoc">Xilinx RFSoC</li>
+<li class="chip" tabindex="0" data-skill="vhdl" data-extra="edu" data-rows="edu">VHDL</li>
+<li class="chip" tabindex="0" data-skill="hls">HLS</li>
+<li class="chip" tabindex="0" data-skill="hls4ml">HLS4ML</li>
+<li class="chip" tabindex="0" data-skill="axi-stream">AXI Stream</li>
+<li class="chip" tabindex="0" data-skill="quantisation">Fixed-Point Quantisation</li>
+</ul>
+</div>
+<div class="tk-group reveal">
+<h3>Software</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="c">C</li>
+<li class="chip" tabindex="0" data-skill="cpp" data-extra="exp" data-rows="care">C++</li>
+<li class="chip" tabindex="0" data-skill="python">Python</li>
+<li class="chip" tabindex="0" data-skill="matlab">MATLAB</li>
+<li class="chip" tabindex="0" data-skill="csharp" data-extra="exp" data-rows="care">C#</li>
+<li class="chip" tabindex="0" data-skill="java" data-extra="exp" data-rows="care">Java</li>
+</ul>
+</div>
+<div class="tk-group reveal">
+<h3>Signal Processing and ML</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="rf">RF Signal Processing</li>
+<li class="chip" tabindex="0" data-skill="stft">STFT</li>
+<li class="chip" tabindex="0" data-skill="cnn">CNN</li>
+<li class="chip" tabindex="0" data-skill="keras">Keras</li>
+<li class="chip" tabindex="0" data-skill="dsp">DSP</li>
+<li class="chip" tabindex="0" data-skill="sdr" data-extra="edu" data-rows="edu">SDR</li>
+</ul>
+</div>
+<div class="tk-group reveal">
+<h3>Tools</h3>
+<ul class="chips">
+<li class="chip" tabindex="0" data-skill="kicad">KiCad</li>
+<li class="chip" tabindex="0" data-skill="cubeide">STM32CubeIDE</li>
+<li class="chip" tabindex="0" data-skill="vivado">Vivado</li>
+<li class="chip" tabindex="0" data-skill="vitis-hls">Vitis HLS</li>
+<li class="chip" tabindex="0" data-skill="scope">Oscilloscopes</li>
+<li class="chip" tabindex="0" data-skill="logic">Logic Analysers</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title" data-track>
+<div class="container">
+<div class="section-head">
+<h2 id="contact-title">Contact</h2>
+</div>
+<dl class="contact-list reveal">
+<div><dt>Email</dt><dd><a href="mailto:1999asad@gmail.com">1999asad@gmail.com</a></dd></div>
+<div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/asad-imran/" target="_blank" rel="noopener">linkedin.com/in/asad-imran</a></dd></div>
+<div><dt>GitHub</dt><dd><a href="https://github.com/AsadImranRafique" target="_blank" rel="noopener">github.com/AsadImranRafique</a></dd></div>
+<div><dt>Résumé</dt><dd><a href="assets/resume.pdf" target="_blank" rel="noopener">Open résumé (PDF)</a></dd></div>
+</dl>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer" data-track data-nav="contact">
+<div class="container foot-inner">
+<p>Asad Imran</p>
+<a href="#hero">Back to top</a>
+</div>
+</footer>
+</body>
+</html>
