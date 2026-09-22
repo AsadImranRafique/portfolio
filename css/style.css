@@ -938,6 +938,11 @@ h3 {
   gap: 16px;
 }
 
+.foot-copy {
+  margin-top: 2px;
+  color: var(--muted);
+}
+
 .site-footer a {
   color: var(--muted);
 }
